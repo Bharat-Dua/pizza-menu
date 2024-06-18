@@ -68,6 +68,12 @@ function Menu() {
   );
 }
 function Footer() {
+  const openHour = 12;
+  const closeHour = 22;
+  const hour = new Date().getHours();
+  const isOpen = hour >= openHour && hour <= closeHour;
+  console.log(isOpen);
+
   return <footer>{new Date().toLocaleTimeString()}we're currently open</footer>;
 }
 
