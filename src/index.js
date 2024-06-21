@@ -67,7 +67,18 @@ function Menu() {
   return (
     <main className="menu">
       <h2>our menu</h2>
-      <Pizza />
+
+      <ul className="pizzas">
+        {pizzaData.map((pizza) => (
+          <Pizza key={pizza.name} pizzaObj={pizza} />
+        ))}
+      </ul>
+      {/* <Pizza
+        name="onion pizza"
+        ingredients="onion"
+        price={60}
+        image="pizzas/funghi.jpg"
+      /> */}
     </main>
   );
 }
@@ -85,13 +96,16 @@ function Footer() {
   );
 }
 
-function Pizza() {
+function Pizza(props) {
   return (
-    <div>
-      <img src="pizzas/funghi.jpg" alt="pizza" />
-      <h3>Pizza Prosciutto</h3>
-      <p>Tomato, mozarella, ham, aragula, and burrata cheese</p>
-    </div>
+    <ul className="pizza">
+      <img src={props.pizzaObj.photoName} alt="pizza" />
+      <div>
+        <h3>{props.pizzaObj.name}</h3>
+        <p>{props.pizzaObj.ingredients}</p>
+        <span>{props.pizzaObj.price}</span>
+      </div>
+    </ul>
   );
 }
 const root = ReactDOM.createRoot(document.getElementById("root"));
